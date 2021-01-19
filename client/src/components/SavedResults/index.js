@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css"
 import {Row, Col} from "../Grid"
+import DeleteBtn from "../DeleteBtn"
 
 const SavedResult = props => {
     return (props.savedBooks.length === 0) ? (
@@ -40,9 +41,7 @@ const SavedResult = props => {
                                 </Row>
                                 <br></br>
                                 <Row className="buttonDiv ">
-                                    <button className="deleteBook btn btn-danger" id={index} onClick={() => props.handleDeleteButton(savedbook.title, savedbook.authors, index)}>
-                                        Delete Book
-                                    </button>
+                                    <DeleteBtn></DeleteBtn>
                                     <a href={savedbook.link} target="_blank">
                                         <button className="viewBook btn btn-success">
                                             View Book
