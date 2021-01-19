@@ -17,10 +17,10 @@ const SearchResult = props => {
                 <div className="card-body player">
                     <div className="article">
                         <h3>Search Results</h3>
-                        {props.books.map(book => {
+                        {props.books.map((index,book) => {
                             return (
                                 <li className="search-list list-group-item">
-                                    <Row className="SearchResult row" id={book.title + "Card"} key={book._id}>
+                                    <Row className="SearchResult row" id={book.title + "Card"} key={index}>
                                         {/* col-3 show image of the book */}
                                         <Col size="2" className="bookImage">
                                             <img src={book.image} alt={book.title} />
@@ -41,7 +41,7 @@ const SearchResult = props => {
                                     </Row>
                                     <br></br>
                                     <Row className="buttonDiv ">
-                                        <button className="saveBook btn btn-primary" id={book.id} onClick={(event) => props.handleSavedButton(event)}>
+                                        <button className="saveBook btn btn-primary" id={index} onClick={(event) => props.handleSavedButton(book)}>
                                             Save Book
                                         </button>
                                         <a href={book.link} target="_blank">
