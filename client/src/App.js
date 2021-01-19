@@ -5,7 +5,11 @@ import SearchBooks from "./pages/SearchBooks";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer"
-import "./App.css"
+import "./App.css";
+import io from "socket.io-client";
+
+// Socket conn
+export const socket = io(); //'http://localhost:3001');
 
 function App() {
   return (
