@@ -16,7 +16,7 @@ const SavedResult = props => {
             <div className="card-body player">
                 <div className="article">
                     <h3>Books that You Saved</h3>
-                    {props.savedBooks.map(savedbook => {
+                    {props.savedBooks.map((index,savedbook) => {
                         return (
                             <li className="saved-list list-group-item">
                                 <Row className="SearchResult" id={savedbook.title + "Card"} key={savedbook._id}>
@@ -40,7 +40,7 @@ const SavedResult = props => {
                                 </Row>
                                 <br></br>
                                 <Row className="buttonDiv ">
-                                    <button className="deleteBook btn btn-danger" id={savedbook._id} onClick={() => props.handleDeleteButton(savedbook._id)}>
+                                    <button className="deleteBook btn btn-danger" id={index} onClick={() => props.handleDeleteButton(savedbook.title, savedbook.authors, index)}>
                                         Delete Book
                                     </button>
                                     <a href={savedbook.link} target="_blank">
