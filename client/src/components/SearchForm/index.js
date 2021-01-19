@@ -12,9 +12,12 @@ const SearchForm = props => {
                     type="text"
                     name="searchBook"
                     placeholder="Enter Book's Name"
-                    onChange={props.handleInputChange}
+                    onChange={props.handleInputValue}
                 />
             </div>
+            <button type="submit" className="submitBtn btn btn-primary" onClick={props.handleFormSubmit}>
+                Submit
+            </button>
         </form>
     )
 }
