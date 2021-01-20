@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require("express");
-const http=require("http");
+const http = require("http");
 const path = require("path");
 const mongoose = require("mongoose");
 const routes = require("./routes");
@@ -18,7 +18,7 @@ app.use(express.json());
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+    app.use(express.static("client/build"));
 }
 
 //Add routes, API and view
@@ -26,19 +26,19 @@ app.use(routes);
 
 //Connect to the mongo db
 mongoose.connect(
-  process.env.MONGODB_URI,
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false
-  }
+    process.env.MONGODB_URI,
+    {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true,
+        useFindAndModify: false
+    }
 );
 
 // Send every request to the React app
 // Define any API routes before this runs
-app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+app.get("*", function (req, res) {
+    res.sendFile(path.join(__dirname, "./client/build/index.html"));
 })
 
 //socket
@@ -46,25 +46,25 @@ app.get("*", function(req, res) {
 //   socketsCount++;
 //   console.log("new client connected",socketsCount);
 //   io.emit('connections_established',socketsCount);
-  
+
 //   socket.on("disconnect", () => {
 //     socketsCount--
 //     console.log("Client disconnected",socketsCount);
 //     io.emit('connection_disconnected',socketsCount);
-    
+
 //   });
 //   socket.on("booksaved", (bookName,author) => {
 //     console.log(bookName,author);
 //     io.emit('booksaved',bookName,author);
-    
+
 //   });
 //   socket.on("bookremoved", (bookName,author,bookid) => {
 //     console.log(bookName,author);
 //     io.emit('bookremoved',bookName,author,bookid);    
 //   });
-  
+
 // });
 
-httpServer.listen(PORT, function() {
-  console.log(`🌎 ==> API server now on port ${PORT}!`);
+httpServer.listen(PORT, function () {
+    console.log(`🌎 ==> API server now on port ${PORT}!`);
 });

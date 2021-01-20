@@ -7,10 +7,7 @@ module.exports = {
             .find(req.query)
             .sort({ date: -1 })
             .then(dbModel => res.json(dbModel))
-            .catch(err => {
-                console.log(err)
-                return res.status(422).json(err)
-            });
+            .catch(err => res.status(422).json(err));
     },
     findById: function (req, res) {
         db.Book
@@ -22,10 +19,7 @@ module.exports = {
         db.Book
             .create(req.body)
             .then(dbModel => res.json(dbModel))
-            .catch(err => {
-                console.log(err);
-                return res.status(422).json(err)
-            });
+            .catch(err => res.status(422).json(err));
     },
     update: function (req, res) {
         db.Book
